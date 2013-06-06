@@ -41,7 +41,6 @@ def main():
   DCORL = loop_dcor(M)
   print np.all(np.abs(DCOR-DCORL) < 0.0000000000001)
 
-
   
 if __name__ == "__main__":
   main()
