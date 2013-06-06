@@ -1,4 +1,9 @@
 *.py[cod]
+*~
+.\#*
+\#*
+nice.may3.Eg.expr.gold.celegans.csv.dcor.pkl
+nice.may3.Eg.expr.gold.celegans.csv.dcor.tab
 
 # C extensions
 *.so
