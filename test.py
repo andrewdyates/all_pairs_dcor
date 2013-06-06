@@ -33,7 +33,7 @@ def loop_dcor(M):
 def main():
   DCOR = script.main(fname=FNAME)
   print DCOR
-  COR = compute_all_ppc(M)
+  COR = compute_all_ppc_numpy(M)
   print COR
   SCI = squareform((pdist(M, metric='correlation')-1)*-1)
   print SCI
