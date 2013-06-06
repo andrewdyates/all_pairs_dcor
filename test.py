@@ -35,10 +35,11 @@ def main():
   print DCOR
   COR = compute_all_ppc_numpy(M)
   print COR
-  SCI = squareform((pdist(M, metric='correlation')-1)*-1)
-  print SCI
-  print COR-SCI
+  SCI = compute_all_pcc_scipy(M)
+  print np.all(np.abs(COR-SCI) < 0.0000000000001)
   DCOR = compute_all_dcor(M)
+  DCORL = loop_dcor(M)
+  print np.all(np.abs(DCOR-DCORL) < 0.0000000000001)
 
 
   

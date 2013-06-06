@@ -32,4 +32,6 @@ def compute_all_pcc_scipy(M):
   """More efficient compute_all_pcc with scipy dependency."""
   from scipy.spatial.distance import pdist
   from scipy.spatial.distance import squareform
-  return np.fill_diagonal(squareform((pdist(M, metric='correlation')-1)*-1),1.0)
+  D = squareform((pdist(M, metric='correlation')-1)*-1)
+  np.fill_diagonal(D, 1.0)
+  return D
