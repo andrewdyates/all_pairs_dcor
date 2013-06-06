@@ -15,6 +15,16 @@ def compute_all_dcor(M):
     DIST[i,] = D.ravel()
   DCOV = np.sqrt(np.dot(DIST,np.transpose(DIST)))
   DSTD = np.sqrt(np.diag(DCOV))
-  DCOV = DCOV / DSTD / DSTD.reshape(m,1)
-  return DCOV
+  DCOR = DCOV / DSTD / DSTD.reshape(m,1)
+  return DCOR
+
+def compute_all_ppc(M):
+  """Return matrix of all-row-pairs correlation."""
+  m,n = M.shape
+  u_row = np.mean(M,1).reshape(m,1)
+  Mat = M-u_row
+  COV = np.dot(Mat,np.transpose(Mat))
+  STD = np.sqrt(np.diag(COV))
+  COR = COV / STD / STD.reshape(m,1)
+  return COR
   
