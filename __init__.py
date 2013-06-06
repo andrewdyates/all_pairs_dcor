@@ -13,7 +13,7 @@ def compute_all_dcor(M):
     u = np.mean(D)
     D = D - u_row - u_col + u
     DIST[i,] = D.ravel()
-  DCOV = np.dot(DIST,np.transpose(DIST))
+  DCOV = np.sqrt(np.dot(DIST,np.transpose(DIST)))
   DSTD = np.sqrt(np.diag(DCOV))
   DCOV = DCOV / DSTD / DSTD.reshape(m,1)
   return DCOV
