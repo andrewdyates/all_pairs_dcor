@@ -18,8 +18,8 @@ def compute_all_dcor(M):
   DCOR = DCOV / DSTD / DSTD.reshape(m,1)
   return DCOR
 
-def compute_all_ppc(M):
-  """Return matrix of all-row-pairs correlation."""
+def compute_all_ppc_numpy(M):
+  """Return matrix of all-row-pairs correlation using numpy functions."""
   m,n = M.shape
   u_row = np.mean(M,1).reshape(m,1)
   Mat = M-u_row
@@ -28,3 +28,10 @@ def compute_all_ppc(M):
   COR = COV / STD / STD.reshape(m,1)
   return COR
   
+def compute_all_pcc_scipy(M):
+  """More efficient compute_all_pcc with scipy dependency."""
+  from scipy.spatial.distance import pdist
+  from scipy.spatial.distance import squareform
+  D = squareform((pdist(M, metric='correlation')-1)*-1)
+  np.fill_diagonal(D, 1.0)
+  return D
