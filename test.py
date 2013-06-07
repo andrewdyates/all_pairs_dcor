@@ -40,8 +40,11 @@ def main():
   DCOR = compute_all_dcor(M)
   DCORL = loop_dcor(M)
   print np.all(np.abs(DCOR-DCORL) < 0.0000000000001)
+  KUN = mio.load("kungold.tab")['M']
+  print KUN
+  print "kun", np.all(np.abs(DCOR-KUN) < 0.001)
+  print "kun", np.all(np.abs(DCORL-KUN) < 0.001)
 
   
 if __name__ == "__main__":
   main()
-
