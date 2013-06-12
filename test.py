@@ -44,10 +44,14 @@ def main():
   DCOR3 = compute_all_dcor_3(M)
   print np.all(np.abs(DCOR-DCOR3) < 0.0000000000001)
   print np.all(np.abs(DCOR-DCOR3) < 0.1)
+
+  KUN = mio.load("kungold.tab")['M']
+  print KUN
+  print "kun", np.all(np.abs(DCOR-KUN) < 0.001)
+  print "kun", np.all(np.abs(DCORL-KUN) < 0.001)
   
   print DCOR[5,3], DCOR[3,5]
   print DCOR3[5,3], DCOR3[3,5]
 
 if __name__ == "__main__":
   main()
-
