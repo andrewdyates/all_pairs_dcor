@@ -10,7 +10,7 @@ import matrix_io as mio
 from __init__ import *
 import cPickle as pickle
 
-def main(fname=None, pkl=True, algorithm="1", outtag="", **kwds):
+def main(fname=None, pkl=True, algorithm="3", outtag="", **kwds):
   assert fname
   if isinstance(pkl, basestring) and pkl.lower() in ('f','false','none'): pkl = False
   print "Loading data from %s..." % fname
